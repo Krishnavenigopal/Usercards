@@ -26,10 +26,8 @@ export default function UserList()  {
     return (
         <div className='user_page' >
             <div className='headings'>
-
             <h1>Users List</h1>
             </div>
-           
            <div className='container' >
             {users.map((users, index) => (
                 <SocialCard userData={users} key={index} index={index}></SocialCard>

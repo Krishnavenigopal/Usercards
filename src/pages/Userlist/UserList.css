@@ -1,0 +1,18 @@
+.user_page {
+    padding: 4 rem;  
+   margin-left: 20px;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    overflow:auto;
+    text-align: center;
+    overflow-y: scroll;
+    max-height: 50rem;
+}
+
+.headings {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}

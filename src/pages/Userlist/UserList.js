@@ -1,4 +1,4 @@
-import React ,{useEffect, useStates}from 'react'
+import React ,{useEffect, useState}from 'react'
 import { SocialCard } from '../../components/molecules/SocialCard/SocialCard';
 import './UserList.css'
 
@@ -6,7 +6,8 @@ import './UserList.css'
 export default function UserList()  {
     const [users, setUsers] = useState([]);
     const [allUsers, setAllUsers] = useState([]);
-    const[endIndex, setEndIndex] = useState(10)
+    const[endIndex, setEndIndex] = useState(0)
+   
 
     useEffect( () => {
        (async () => {

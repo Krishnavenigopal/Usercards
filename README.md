@@ -10,3 +10,8 @@ It has the below functionalities
  2. Navigate to the usercards folder and do an npm install there.
  3. Start the application using npm start 
 
+ ### Please note:
+ 1.Data for this is taken from radom user data api(free): 'https://randomuser.me/api/?results=10'
+
+ 2. Currently enabled authorization for only a single user. So when login page loads, give email: admin@card.com and password: Password@123
+

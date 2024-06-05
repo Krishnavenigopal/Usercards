@@ -1,4 +1,4 @@
-import React ,{useEffect, useState}from 'react'
+import React ,{useEffect, useState, useRef}from 'react'
 import { SocialCard } from '../../components/molecules/SocialCard/SocialCard';
 import './UserList.css'
 
@@ -6,13 +6,14 @@ import './UserList.css'
 export default function UserList()  {
     const [users, setUsers] = useState([]);
     const [allUsers, setAllUsers] = useState([]);
-    const[endIndex, setEndIndex] = useState(10)
+    const[endIndex, setEndIndex] = useState(0)
+    const ref = useRef(null);
 
     useEffect( () => {
        (async () => {
         let userData;
         try {
-            const response= await fetch('https://randomuser.me/api/?results=10');
+            const response= await fetch(`https://randomuser.me/api/?results=${10 + endIndex}`);
             userData = (await response.json()).results;
         } catch (error) {
             console.log(error);

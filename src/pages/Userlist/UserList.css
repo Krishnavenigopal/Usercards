@@ -11,12 +11,6 @@
     max-height: 50rem;
 }
 
-.headings {
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-}
-
 .search-box {
     outline: none;
     width: auto;
@@ -24,4 +18,16 @@
     font-size: 1rem;
     padding: 1rem;
     border-radius: .5rem;
+}
+
+.logout {
+    flex-direction: column;
+    color: blue;
+}
+
+.headings {
+    width: 80%;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
 }

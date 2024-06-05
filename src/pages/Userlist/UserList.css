@@ -16,3 +16,12 @@
     display: flex;
     justify-content: space-between;
 }
+
+.search-box {
+    outline: none;
+    width: auto;
+    border: 1px solid grey;
+    font-size: 1rem;
+    padding: 1rem;
+    border-radius: .5rem;
+}

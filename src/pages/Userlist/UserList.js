@@ -2,7 +2,8 @@ import React ,{useEffect, useState,  useRef}from 'react'
 import { SocialCard } from '../../components/molecules/SocialCard/SocialCard';
 import './UserList.css'
 import { Button } from '@mui/material';
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom';
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 export default function UserList()  {
@@ -11,7 +12,8 @@ export default function UserList()  {
     const [logout, setLogout] =useState(false)
     const navigate = useNavigate()
     const ref = useRef(null);
-    const[endIndex, setEndIndex] = useState(0)
+    const [endIndex, setEndIndex] = useState(0)
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
       if(!localStorage.getItem('auth'))
@@ -31,6 +33,7 @@ export default function UserList()  {
          }
          setUsers((users) => [...users, ...userData]);
          setAllUsers((users) => [...users, ...userData]);
+         setLoading(false);
         })();
      },[endIndex]);
 
@@ -50,8 +53,11 @@ export default function UserList()  {
             const {scrollTop, clientHeight, scrollHeight} = current;
             const computedScrollHeight = Math.round(scrollTop) + clientHeight;
 
-            if(scrollHeight >= computedScrollHeight -1 && scrollHeight<= computedScrollHeight+1)
+            if(scrollHeight >= computedScrollHeight -1 && scrollHeight<= computedScrollHeight+1) {
+                setLoading(true);
                 setEndIndex(index => index+2);
+            }
+                
             // if topscroll
             if(scrollTop === 0) {
                 console.log("reached top")
@@ -75,6 +81,7 @@ export default function UserList()  {
             {users.map((users, index) => (
                 <SocialCard userData={users} key={index} index={index}></SocialCard>
             ))}
+            {loading && <CircularProgress />}
         </div> 
         </div>
     );

@@ -16,6 +16,7 @@ export default function UserList()  {
     useEffect(() => {
       if(!localStorage.getItem('auth'))
         navigate('/login')
+    // eslint-disable-next-line
     },[logout])
 
     useEffect( () => {
@@ -28,8 +29,8 @@ export default function UserList()  {
              console.log(error);
              userData=[];
          }
-         setUsers(userData);
-         setAllUsers(userData);
+         setUsers((users) => [...users, ...userData]);
+         setAllUsers((users) => [...users, ...userData]);
         })();
      },[endIndex]);
 
